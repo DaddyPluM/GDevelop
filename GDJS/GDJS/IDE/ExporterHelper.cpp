@@ -569,6 +569,7 @@ void ExporterHelper::AddLibsInclude(bool pixiRenderers,
   InsertUnique(includesFiles, "layer.js");
   InsertUnique(includesFiles, "RuntimeSceneLayer.js");
   InsertUnique(includesFiles, "timer.js");
+  InsertUnique(includesFiles, "runtimewatermark.js");
   InsertUnique(includesFiles, "runtimegame.js");
   InsertUnique(includesFiles, "variable.js");
   InsertUnique(includesFiles, "variablescontainer.js");
@@ -836,7 +837,7 @@ void ExporterHelper::ExportObjectAndBehaviorsIncludes(
     const gd::Layout &layout = project.GetLayout(i);
     addObjectsIncludeFiles(layout);
   }
-  
+
   // Event based objects children
   for (std::size_t e = 0; e < project.GetEventsFunctionsExtensionsCount(); e++) {
     auto& eventsFunctionsExtension = project.GetEventsFunctionsExtension(e);

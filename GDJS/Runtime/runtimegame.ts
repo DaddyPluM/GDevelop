@@ -75,6 +75,7 @@ namespace gdjs {
     _renderer: RuntimeGameRenderer;
     _sessionId: string | null;
     _playerId: string | null;
+    _watermark: RuntimeWatermark;
 
     //Game loop management (see startGameLoop method)
     _sceneStack: SceneStack;
@@ -136,6 +137,7 @@ namespace gdjs {
         this,
         this._options.forceFullscreen || false
       );
+      this._watermark = new gdjs.RuntimeWatermark(this._renderer);
       this._sceneStack = new gdjs.SceneStack(this);
       this._inputManager = new gdjs.InputManager();
       this._injectExternalLayout = this._options.injectExternalLayout || '';
@@ -639,6 +641,7 @@ namespace gdjs {
               this.getSceneData().name,
           this._injectExternalLayout
         );
+        this._watermark.display();
 
         //Uncomment to profile the first x frames of the game.
         // var x = 500;
